@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Sorpresa 2parte</title>
+<style>
+  body {
+  background: linear-gradient(135deg, #6c85df, #3922bb);
+    text-align: center;
+    font-family: 'Comic Sans MS', cursive;
+    color: #e7dee3;
+    padding-top: 100px;
+  }
+  .modal {
+    background:#606ad6;
+    padding:80px 30px;
+    border-radius:12px;
+    box-shadow:0 15px 14px rgba(0,0,0,0.2);
+    text-align:center;
+    color:#fff;
+  }
+  input[type="password"] {
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #ddd;
+    width:60%;
+    font-size:1rem;
+  }
+  button {
+    padding:10px 14px;
+    border:none;
+    border-radius:8px;
+    background:#24246a;
+    color:#fff;
+    cursor:pointer;
+    margin-left:8px;
+  }
+  .error {
+    color:#ffcccc;
+    margin-top:10px;
+    display:none;
+  }
+</style>
+</head>
+<body>
+
+<div class="modal">
+  <h2>Tienes que adivinar la contraseña para continuar con la sorpresa 💌</h2>
+  <input type="password" id="pass" placeholder="Contraseña...">
+  <button id="btn">Abrir</button>
+  <div class="error" id="error">nonono muy mal corazón, inténtelo de nuevo 😅</div>
+  <p style="font-size:0.85rem;color:#ddd; margin-top:10px;">
+   Pista: el primer apodo que me pusiste 💭 <strong>Verdad mugrosa</strong>
+  </p>
+</div>
+
+<script>
+const PASSWORD = "mugroso"; // contraseña correcta
+const btn = document.getElementById("btn");
+const passInput = document.getElementById("pass");
+const errorDiv = document.getElementById("error");
+
+btn.addEventListener("click", ()=> {
+  if(passInput.value === PASSWORD){
+    // ✅ Abre otro archivo HTML (por ejemplo, CARTA2.html)
+    window.location.href = "index1.html";
+  } else {
+    errorDiv.style.display = "block";
+    setTimeout(()=> errorDiv.style.display = "none", 2000);
+    passInput.value = "";
+    passInput.focus();
+  }
+});
+
+passInput.addEventListener("keydown", e => {
+  if(e.key === "Enter") btn.click();
+});
+</script>
+
+</body>
+</html>

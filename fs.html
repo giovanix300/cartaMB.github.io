@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+    <title>CARTA PARA MIRI :3</title>
+
+<style>
+  /* Fondo */
+  body {
+    background: linear-gradient(160deg, #6c85df, #3922bb);
+    text-align: center;
+    font-family: 'Comic Sans MS', cursive;
+    color: #e7dee3;
+    padding-top: 100px;
+  }
+
+  /* --- SOBRE Y CARTA --- */
+  .contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+  }
+
+  .envoltura-sobre {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    cursor: pointer;
+  }
+
+  /* 🎀 Color del sobre */
+  .sobre {
+    width: 100%;
+    height: 100%;
+    background-color: #ffb6c1; /* 💖 Cambia este color */
+    position: relative;
+    z-index: 2;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 182, 193, 0.8);
+    transition: transform 1s;
+    transform-origin: bottom;
+  }
+
+  /* Cuando el sobre se abre */
+  .envoltura-sobre.open .sobre {
+    transform: rotateX(180deg);
+  }
+
+  .carta {
+    background-color: #fff0f5;
+    color: #3a2b2b;
+    padding: 15px;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    z-index: 1;
+  }
+
+  /* Animación de corazones */
+  .corazon {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: #ff4081;
+    clip-path: polygon(50% 0%, 100% 35%, 82% 100%, 50% 75%, 18% 100%, 0% 35%);
+    animation: latido 1.2s infinite;
+  }
+
+  @keyframes latido {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.2); }
+  }
+
+  /* Botón con brillo */
+  @keyframes flotar {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+
+  button {
+    background-color: #682cc3;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    cursor: pointer;
+    margin: 30px 0;
+    transition: 0.3s;
+    animation: flotar 2s ease-in-out infinite;
+    box-shadow: 0 0 10px #e10f78, 0 0 20px #2920ae, 0 0 30px #1c1cc6;
+  }
+
+  button:hover {
+    background-color: #ff1493;
+    box-shadow: 0 0 20px #ff69b4, 0 0 30px #ff69b4, 0 0 40px #ff1493;
+  }
+</style>
+</head>
+
+<body>
+    <h1>¡Abre la carta amor! ❤️</h1>
+
+    <div class="contenedor">
+        <div class="envoltura-sobre" onclick="abrirCarta()">
+            <div class="sobre"></div>
+            <div class="carta">
+                <div class="contenido">
+                    <strong>Hola Miris </strong>
+                    <p>
+                        Hoy es un día especial ya que cumplimos un año de esa primera situación. Quién diría que todo fue tan rápido... gracias por estar este tiempo conmigo 💕. 
+                        Han sido meses de aventuras y desafíos a tu lado, y sigo aprendiendo de eso. 
+                        Hoy solo quiero recordar con cariño el tiempo que me has permitido estar contigo.
+                    </p>
+                    <p>
+                        <strong>P.D.: Nunca te lo he dicho, pero cada discusión me recuerda algo: tú eres mi camino, y siempre lo serás. Si tuviera que elegir otra vez, te elegiría a ti. 💖</strong>
+                    </p>
+                </div>
+            </div>
+            <div class="corazon"></div>
+        </div>
+    </div>
+
+    <button onclick="window.location.href='index2.html'">Botoncito de sorpresa :3</button>
+
+    <script>
+        // Función para abrir el sobre
+        function abrirCarta() {
+            document.querySelector('.envoltura-sobre').classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
